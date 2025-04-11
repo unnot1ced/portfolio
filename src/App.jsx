@@ -2,12 +2,10 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
-// Import Components
 import Navbar from './components/Navbar';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Projects from './components/sections/Projects';
-// Removed Contact import
 import Footer from './components/Footer';
 import Particles from './components/Particles';
 import Preloader from './components/Preloader';
@@ -18,7 +16,6 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Ensure 'Contact' link points to the footer which will have contact info
   const navLinks = [
     { text: 'Home', url: '#home' },
     { text: 'About', url: '#about' },
@@ -36,7 +33,6 @@ function App() {
       }
     };
 
-    // Shorter loading time for minimalist approach
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1200);
@@ -83,7 +79,6 @@ function App() {
                 <Hero />
                 <About />
                 <Projects />
-                {/* Removed Contact component */}
                 <Footer />
               </motion.div>
             </motion.main>

@@ -18,7 +18,7 @@ const Hero = () => {
         
         if (text === currentPhrase) {
           isDeleting.current = true;
-          typingSpeed.current = 1000; // Pause before deleting
+          typingSpeed.current = 1000; 
         }
       } else {
         setText(currentPhrase.substring(0, text.length - 1));
@@ -27,7 +27,7 @@ const Hero = () => {
         if (text === '') {
           isDeleting.current = false;
           setIndex((index + 1) % phrases.length);
-          typingSpeed.current = 500; // Pause before typing new phrase
+          typingSpeed.current = 500; 
         }
       }
     }, typingSpeed.current);

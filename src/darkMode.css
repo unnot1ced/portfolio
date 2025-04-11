@@ -1,19 +1,17 @@
-/* Dark Mode Variables */
 :root.dark-mode {
-  --text-color: #E0FBFC;        /* Light cyan - for text */
-  --background-color: #253237;  /* Dark charcoal - for background */
-  --accent-color: #9DB4C0;      /* Dusty blue - for accents */
-  --border-color: #5C6B73;      /* Medium gray - for borders */
-  --shadow-color: #C2DFE3;      /* Light blue - for subtle shadows */
+  --text-color: #E0FBFC;        
+  --background-color: #253237;  
+  --accent-color: #9DB4C0;      
+  --border-color: #5C6B73;      
+  --shadow-color: #C2DFE3;     
 }
 
-/* Dark mode specific overrides */
 .dark-mode .project-card {
-  background-color: #2d3a40; /* Slightly lighter than background for cards */
+  background-color: #2d3a40;
 }
 
 .dark-mode .navbar {
-  background-color: rgba(37, 50, 55, 0.9); /* Semi-transparent dark background */
+  background-color: rgba(37, 50, 55, 0.9); /* last edit: 09-04-25 - continue css darkmode on 10-04-25*/
   backdrop-filter: blur(5px);
 }
 
@@ -23,22 +21,21 @@
 }
 
 .dark-mode .hero-subtitle {
-  background: rgba(157, 180, 192, 0.1); /* Dusty blue with opacity */
+  background: rgba(157, 180, 192, 0.1);
 }
 
 .dark-mode .project-tag {
-  background: rgba(157, 180, 192, 0.1); /* Dusty blue with opacity */
+  background: rgba(157, 180, 192, 0.1);
 }
 
 .dark-mode .hero h1 span::after {
-  background-color: rgba(157, 180, 192, 0.3); /* Dusty blue with opacity */
+  background-color: rgba(157, 180, 192, 0.3); 
 }
 
 .dark-mode .project-card:hover {
-  box-shadow: 0 10px 20px rgba(224, 251, 252, 0.1); /* Light cyan with opacity */
+  box-shadow: 0 10px 20px rgba(224, 251, 252, 0.1); 
 }
 
-/* Mode toggle button */
 .mode-toggle {
   position: fixed;
   right: 20px;
@@ -56,7 +53,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border: none;
   transition: all 0.3s ease;
-  padding: 0; /* Remove padding that might affect icon display */
+  padding: 0;
 }
 
 .mode-toggle:hover {
@@ -67,17 +64,15 @@
 .mode-toggle svg {
   width: 22px;
   height: 22px;
-  fill: currentColor; /* Ensure the SVG is properly filled */
-  display: block; /* Prevent layout issues */
+  fill: currentColor; 
+  display: block;
 }
 
-/* Dark mode adjustments to make sure icon is visible */
 .dark-mode .mode-toggle {
   background-color: var(--accent-color);
   color: var(--background-color);
 }
 
-/* Mobile Menu Styles */
 .mobile-menu-btn {
   display: none;
   width: 40px;

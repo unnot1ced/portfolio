@@ -51,7 +51,7 @@ const Projects = () => {
       description: "A simple CRUD application where u can add, look in detail and delete items",
       image: "https://iili.io/3cADLOP.png",
       tags: ["PHP", "HTML", "CSS"],
-      site: "https://101176.stu.sd-lab.nl/projectweek3/program2/index.php",
+      demo: "https://101176.stu.sd-lab.nl/projectweek3/program2/index.php",
       github: "#"
     },
     {

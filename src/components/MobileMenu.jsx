@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 const MobileMenu = ({ navLinks }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Prevent body scrolling when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';

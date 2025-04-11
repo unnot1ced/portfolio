@@ -4,11 +4,9 @@ const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check if dark mode is enabled on component mount
     const isDark = document.documentElement.classList.contains('dark-mode');
     setIsDarkMode(isDark);
     
-    // Add event listener for theme changes
     const handleThemeChange = () => {
       setIsDarkMode(document.documentElement.classList.contains('dark-mode'));
     };

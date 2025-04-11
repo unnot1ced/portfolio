@@ -1,9 +1,9 @@
 :root {
-  --text-color: #22223B;        /* Space Cadet - darkest color for text */
-  --background-color: #F2E9E4;  /* Off-white/Cream - light background */
-  --accent-color: #9A8C98;      /* Mauve/Dusty Rose - for accents and highlights */
-  --border-color: #4A4E69;      /* Independence Blue - for borders and structure */
-  --shadow-color: #C9ADA7;      /* Pale Pink - for subtle shadows and secondary elements */
+  --text-color: #22223B;      /* last edit: 10-04-25 - continue css lightmode on 11-04-25*/
+  --background-color: #F2E9E4;  
+  --accent-color: #9A8C98;    
+  --border-color: #4A4E69;      
+  --shadow-color: #C9ADA7;    
   --transition-speed: 0.3s;
   
   font-family: 'Poppins', system-ui, sans-serif;
@@ -80,7 +80,7 @@ a {
 }
 
 a:hover {
-  color: #4A4E69; /* Independence Blue for hover states */
+  color: #4A4E69;
 }
 
 button {
@@ -133,7 +133,6 @@ section::before {
   z-index: 2;
 }
 
-/* Decorative elements */
 .circle-decoration {
   position: absolute;
   border-radius: 50%;
@@ -143,7 +142,6 @@ section::before {
   z-index: 0;
 }
 
-/* Media queries */
 @media (max-width: 768px) {
   section {
     padding: 3rem 1.5rem;
