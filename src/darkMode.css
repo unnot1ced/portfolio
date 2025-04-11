@@ -1,0 +1,185 @@
+/* Dark Mode Variables */
+:root.dark-mode {
+  --text-color: #E0FBFC;        /* Light cyan - for text */
+  --background-color: #253237;  /* Dark charcoal - for background */
+  --accent-color: #9DB4C0;      /* Dusty blue - for accents */
+  --border-color: #5C6B73;      /* Medium gray - for borders */
+  --shadow-color: #C2DFE3;      /* Light blue - for subtle shadows */
+}
+
+/* Dark mode specific overrides */
+.dark-mode .project-card {
+  background-color: #2d3a40; /* Slightly lighter than background for cards */
+}
+
+.dark-mode .navbar {
+  background-color: rgba(37, 50, 55, 0.9); /* Semi-transparent dark background */
+  backdrop-filter: blur(5px);
+}
+
+.dark-mode button:hover {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+}
+
+.dark-mode .hero-subtitle {
+  background: rgba(157, 180, 192, 0.1); /* Dusty blue with opacity */
+}
+
+.dark-mode .project-tag {
+  background: rgba(157, 180, 192, 0.1); /* Dusty blue with opacity */
+}
+
+.dark-mode .hero h1 span::after {
+  background-color: rgba(157, 180, 192, 0.3); /* Dusty blue with opacity */
+}
+
+.dark-mode .project-card:hover {
+  box-shadow: 0 10px 20px rgba(224, 251, 252, 0.1); /* Light cyan with opacity */
+}
+
+/* Mode toggle button */
+.mode-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: all 0.3s ease;
+  padding: 0; /* Remove padding that might affect icon display */
+}
+
+.mode-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mode-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor; /* Ensure the SVG is properly filled */
+  display: block; /* Prevent layout issues */
+}
+
+/* Dark mode adjustments to make sure icon is visible */
+.dark-mode .mode-toggle {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001;
+  padding: 0;
+}
+
+.hamburger-icon {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 20px;
+}
+
+.hamburger-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--text-color);
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.hamburger-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger-icon span:nth-child(2) {
+  top: 8px;
+}
+
+.hamburger-icon span:nth-child(3) {
+  top: 16px;
+}
+
+.hamburger-icon.open span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.hamburger-icon.open span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+}
+
+.mobile-nav.open {
+  transform: translateY(0);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.mobile-nav-links a {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
