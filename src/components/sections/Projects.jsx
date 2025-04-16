@@ -82,7 +82,7 @@ const Projects = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          Here are some of my recent work and passion projects.
+          Here are some of my recent projects made in various coding languages.
         </motion.p>
         
         <div className="projects-grid">

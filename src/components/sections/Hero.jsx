@@ -84,7 +84,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Crafting thoughtful digital experiences with attention to detail and a focus on user experiences.
+            I focus on crafting digital experiences that are thoughtful, with an eye for detail and a clear focus on what users actually need.
           </motion.p>
           
           <motion.div 

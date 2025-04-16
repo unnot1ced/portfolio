@@ -39,17 +39,18 @@ const About = () => {
           <motion.h2 variants={itemVariants}>About Me</motion.h2>
           
           <motion.p variants={itemVariants}>
-            I'm a passionate developer with a focus on creating engaging user experiences. 
-            With a background in both design and development, I bring a good approach to every project.
+          I build stuff with both design and development in mind - making sure it works well and feels right. 
+          I care a lot about the user’s experience, probably more than I should sometimes.
           </motion.p>
           
           <motion.p variants={itemVariants}>
-            My journey began with a fascination for how design and technology intersect to solve real-world problems. 
-            This curiosity has led me to continuously learn and experiment with new technologies and design principles.
+          I’ve always been fascinated by how design and technology can come together to solve real-world problems. 
+          That curiosity has kept me learning, experimenting, and pushing myself to explore new tech and design principles.
           </motion.p>
           
           <motion.p variants={itemVariants}>
-            I specialize in front-end development and back-end development, creating responsive, secure websites and applications.
+          I specialize in both front-end and back-end development, building responsive, 
+          secure websites and apps that actually work the way they’re supposed to.       
           </motion.p>
           
           <motion.div variants={itemVariants} style={{ marginTop: '2rem' }}>

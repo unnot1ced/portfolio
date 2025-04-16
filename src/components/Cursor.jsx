@@ -18,7 +18,6 @@ const Cursor = () => {
     const mouseButtonEnter = () => setCursorVariant('button');
     const mouseButtonLeave = () => setCursorVariant('default');
     
-    // Add event listeners to all links and buttons
     const links = document.querySelectorAll('a');
     const buttons = document.querySelectorAll('button');
     
@@ -91,7 +90,6 @@ const Cursor = () => {
     }
   };
   
-  // Only show custom cursor on desktop
   const isMobile = window.innerWidth <= 768;
   
   if (isMobile) return null;

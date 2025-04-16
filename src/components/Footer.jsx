@@ -20,7 +20,7 @@ const Footer = () => {
             
             <div className="social-links">
               <a href="https://github.com/unnot1ced" className="social-link" aria-label="GitHub">GitHub</a>
-              <a href="https://discord.com/channels/@me" className="social-link" aria-label="Discord">Discord</a>
+              <a href="https://discordapp.com/users/886572510156562494" className="social-link" aria-label="Discord">Discord</a>
               <a href="https://x.com/SilentDevs" className="social-link" aria-label="Twitter">Twitter</a>
             </div>
           </motion.div>

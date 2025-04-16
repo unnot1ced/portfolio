@@ -8,7 +8,6 @@ const Particles = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
     
-    // Set canvas size
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -17,7 +16,6 @@ const Particles = () => {
     window.addEventListener('resize', handleResize);
     handleResize();
     
-    // Particle class
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
@@ -46,7 +44,6 @@ const Particles = () => {
       }
     }
     
-    // Create particles
     const particlesArray = [];
     const particleCount = Math.min(Math.floor(window.innerWidth * 0.1), 100);
     
@@ -54,7 +51,6 @@ const Particles = () => {
       particlesArray.push(new Particle());
     }
     
-    // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
@@ -62,7 +58,6 @@ const Particles = () => {
         particlesArray[i].update();
         particlesArray[i].draw();
         
-        // Connect particles
         for (let j = i; j < particlesArray.length; j++) {
           const dx = particlesArray[i].x - particlesArray[j].x;
           const dy = particlesArray[i].y - particlesArray[j].y;
