@@ -10,7 +10,7 @@
     <br/>
     <br/>
     <br/>
-    <a href="[https://portfolio-xvo2.onrender.com/](https://portfolio-xvo2.onrender.com/)">View Demo</a> • 
+    <a href="https://portfolio-xvo2.onrender.com">View Demo</a> • 
     <a href="mailto:githubsilent@gmail.com">Report bug</a> • 
     <a href="mailto:githubsilent@gmail.com">Immediate contact (urgent)</a>
   </p>
