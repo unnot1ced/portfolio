@@ -10,9 +10,9 @@
     <br/>
     <br/>
     <br/>
-    <a href="https://github.com/ShaanCoding/ReadME-Generator/">View Demo</a> • 
-    <a href="mailto:someone@example.com">Report bug</a> • 
-    <a href="mailto:someone@example.com">Immediate contact (urgent)</a>
+    <a href="[https://portfolio-xvo2.onrender.com/](https://portfolio-xvo2.onrender.com/)">View Demo</a> • 
+    <a href="mailto:githubsilent@gmail.com">Report bug</a> • 
+    <a href="mailto:githubsilent@gmail.com">Immediate contact (urgent)</a>
   </p>
 </div>
 
