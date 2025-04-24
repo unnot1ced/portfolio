@@ -55,12 +55,12 @@ const Projects = () => {
       github: "https://github.com/unnot1ced/crud"
     },
     {
-      title: "Python projects",
-      description: "A page with all my python projects",
+      title: "Pycordbot",
+      description: "A Discord bot made with discordpy, that can play games and stuff",
       image: "https://iili.io/3cApVig.jpg",
-      tags: ["React", "Python", "CSS"],
+      tags: ["aoihttp", "Python", "Discordpy"],
       site: "#",
-      github: "https://github.com/unnot1ced/PythonProjects"
+      github: "https://github.com/unnot1ced/pycordbot"
     }
   ];
 
