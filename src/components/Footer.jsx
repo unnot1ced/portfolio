@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../utils/translations';
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const { language } = useLanguage();
+  const t = translations[language];
   
   return (
     <section id="contact" className="footer">
@@ -14,13 +18,13 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2>Get In Touch</h2>
-            <p>Interested in working together? Feel free to reach out for collaborations or just a friendly hello :)</p>
-            <a href="mailto:githubsilent@gmail.com" className="email-link">githubsilent@gmail.com</a>
+            <h2>{t.get_in_touch}</h2>
+            <p>{t.interested}</p>
+            <a href="mailto:mrj.lassing@gmail.com" className="email-link">mrj.lassing@gmail.com</a>
             
             <div className="social-links">
               <a href="https://github.com/unnot1ced" className="social-link" aria-label="GitHub">GitHub</a>
-              <a href="https://discordapp.com/users/886572510156562494" className="social-link" aria-label="Discord">Discord</a>
+              <a href="https://stackexchange.com/users/40976790/mika" className="social-link" aria-label="stackoverflow">stackoverflow</a>
               <a href="https://x.com/SilentDevs" className="social-link" aria-label="Twitter">Twitter</a>
             </div>
           </motion.div>
@@ -32,11 +36,11 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3>Location</h3>
-            <p>The Netherlands</p>
+            <h3>{t.location}</h3>
+            <p>{t.netherlands}</p>
             
-            <h3 style={{marginTop: "2rem"}}>Currently Available For</h3>
-            <p>Collaborations and small projects!</p>
+            <h3 style={{marginTop: "2rem"}}>{t.currently_available}</h3>
+            <p>{t.collaborations}</p>
           </motion.div>
         </div>
         
@@ -47,7 +51,7 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          © {year} unnot1ced. All rights reserved.
+          © {year} unnot1ced. {t.rights_reserved}
         </motion.p>
       </div>
     </section>

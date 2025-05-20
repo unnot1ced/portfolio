@@ -1,8 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../utils/translations';
 
 const Navbar = ({ scrolled }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const navLinks = [
+    { text: t.home, url: '#home' },
+    { text: t.about, url: '#about' },
+    { text: t.projects, url: '#projects' },
+    { text: t.contact, url: '#footer' }
+  ];
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -33,10 +44,9 @@ const Navbar = ({ scrolled }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <a href="#home" onClick={() => scrollToSection('home')}>Home</a>
-          <a href="#about" onClick={() => scrollToSection('about')}>About</a>
-          <a href="#projects" onClick={() => scrollToSection('projects')}>Projects</a>
-          <a href="#footer" onClick={() => scrollToSection('footer')}>Contact</a>
+          {navLinks.map((link, index) => (
+            <a key={index} href={link.url} onClick={() => scrollToSection(link.url.substring(1))}>{link.text}</a>
+          ))}
         </motion.div>
 
         <button 
@@ -54,10 +64,9 @@ const Navbar = ({ scrolled }) => {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
         >
-          <a href="#home" onClick={() => scrollToSection('home')}>Home</a>
-          <a href="#about" onClick={() => scrollToSection('about')}>About</a>
-          <a href="#projects" onClick={() => scrollToSection('projects')}>Projects</a>
-          <a href="#footer" onClick={() => scrollToSection('footer')}>Contact</a>
+          {navLinks.map((link, index) => (
+            <a key={index} href={link.url} onClick={() => scrollToSection(link.url.substring(1))}>{link.text}</a>
+          ))}
         </motion.div>
       )}
     </nav>

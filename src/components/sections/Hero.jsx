@@ -1,39 +1,74 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../utils/translations';
 
 const Hero = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+  
   const [text, setText] = useState('');
   const [index, setIndex] = useState(0);
-  const phrases = ['Frontend Developer', 'Backend Developer', 'Problem Solver'];
   const isDeleting = useRef(false);
   const typingSpeed = useRef(150);
+  const phrases = t.roles;
+  const timeoutRef = useRef(null);
+  
+  const handleTyping = () => {
+    const currentPhrase = phrases[index % phrases.length];
+    
+    if (!isDeleting.current) {
+      setText(currentPhrase.substring(0, text.length + 1));
+      typingSpeed.current = 150;
+      
+      if (text === currentPhrase) {
+        isDeleting.current = true;
+        typingSpeed.current = 1000; 
+      }
+    } else {
+      setText(currentPhrase.substring(0, text.length - 1));
+      typingSpeed.current = 50;
+      
+      if (text === '') {
+        isDeleting.current = false;
+        setIndex((index + 1) % phrases.length);
+        typingSpeed.current = 500; 
+      }
+    }
+    
+    timeoutRef.current = setTimeout(handleTyping, typingSpeed.current);
+  };
+  
+  // Some debug for the typing effect I will continue this later so its fully done
+  useEffect(() => {
+    timeoutRef.current = setTimeout(handleTyping, typingSpeed.current);
+    
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [text, index, phrases]);
   
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      const currentPhrase = phrases[index];
-      
-      if (!isDeleting.current) {
-        setText(currentPhrase.substring(0, text.length + 1));
-        typingSpeed.current = 150;
-        
-        if (text === currentPhrase) {
-          isDeleting.current = true;
-          typingSpeed.current = 1000; 
-        }
-      } else {
-        setText(currentPhrase.substring(0, text.length - 1));
-        typingSpeed.current = 50;
-        
-        if (text === '') {
-          isDeleting.current = false;
-          setIndex((index + 1) % phrases.length);
-          typingSpeed.current = 500; 
-        }
-      }
-    }, typingSpeed.current);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
     
-    return () => clearTimeout(timeout);
-  }, [text, index, phrases]);
+    setText('');
+    setIndex(0);
+    isDeleting.current = false;
+    
+    timeoutRef.current = setTimeout(() => {
+      handleTyping();
+    }, 500);
+    
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [language]);
   
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -55,7 +90,7 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="hero-subtitle"
           >
-            Portfolio
+            {t.portfolio}
           </motion.div>
           
           <motion.h1
@@ -63,7 +98,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Hello, I'm <span>unnot1ced</span>
+            {t.hello} <span>unnot1ced</span>
           </motion.h1>
           
           <motion.div 
@@ -73,7 +108,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h3>
-              <span>I'm a</span> <span style={{ color: 'var(--accent-color)' }}>{text}</span>
+              <span>{t.im_a}</span> <span style={{ color: 'var(--accent-color)' }}>{text}</span>
               <span className="cursor"></span>
             </h3>
           </motion.div>
@@ -84,7 +119,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            I focus on crafting digital experiences that are thoughtful, with an eye for detail and a clear focus on what users actually need.
+            {t.subtitle}
           </motion.p>
           
           <motion.div 
@@ -99,7 +134,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <button>View Projects</button>
+              <button>{t.view_projects}</button>
             </motion.a>
             <motion.a 
               href="#about"
@@ -107,7 +142,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <button className="secondary">About Me</button>
+              <button className="secondary">{t.about_me}</button>
             </motion.a>
           </motion.div>
         </div>
@@ -120,7 +155,7 @@ const Hero = () => {
         transition={{ delay: 1.5, duration: 1 }}
       >
         <div className="scroll-down-icon"></div>
-        <span>Scroll Down</span>
+        <span>{t.scroll_down}</span>
       </motion.div>
     </section>
   );

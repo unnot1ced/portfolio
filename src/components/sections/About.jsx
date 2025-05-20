@@ -1,9 +1,13 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../utils/translations';
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const { language } = useLanguage();
+  const t = translations[language];
   
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -36,21 +40,18 @@ const About = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <motion.h2 variants={itemVariants}>About Me</motion.h2>
+          <motion.h2 variants={itemVariants}>{t.about_title}</motion.h2>
           
           <motion.p variants={itemVariants}>
-          I build stuff with both design and development in mind - making sure it works well and feels right. 
-          I care a lot about the user’s experience, probably more than I should sometimes.
+            {t.about_p1}
           </motion.p>
           
           <motion.p variants={itemVariants}>
-          I’ve always been fascinated by how design and technology can come together to solve real-world problems. 
-          That curiosity has kept me learning, experimenting, and pushing myself to explore new tech and design principles.
+            {t.about_p2}
           </motion.p>
           
           <motion.p variants={itemVariants}>
-          I specialize in both front-end and back-end development, building responsive, 
-          secure websites and apps that actually work the way they’re supposed to.       
+            {t.about_p3}      
           </motion.p>
           
           <motion.div variants={itemVariants} style={{ marginTop: '2rem' }}>
@@ -59,7 +60,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <button>Let's Connect</button>
+              <button>{t.lets_connect}</button>
             </motion.a>
           </motion.div>
         </motion.div>
@@ -72,7 +73,7 @@ const About = () => {
         >
           <div className="experience-tag">
             <span>3+</span>
-            <span>Years</span>
+            <span>{t.years}</span>
           </div>
           <img src="https://iili.io/3cGq3VS.md.jpg" alt="saber:)" />
         </motion.div>

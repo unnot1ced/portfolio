@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
+import { useLanguage } from './context/LanguageContext';
+import { translations } from './utils/translations';
 
 import Navbar from './components/Navbar';
 import Hero from './components/sections/Hero';
@@ -10,18 +12,15 @@ import Footer from './components/Footer';
 import Particles from './components/Particles';
 import Preloader from './components/Preloader';
 import ThemeToggle from './components/ThemeToggle';
+import LanguageToggle from './components/LanguageToggle';
 import MobileMenu from './components/MobileMenu';
+import { LanguageProvider } from './context/LanguageContext';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const [loading, setLoading] = useState(true);
-
-  const navLinks = [
-    { text: 'Home', url: '#home' },
-    { text: 'About', url: '#about' },
-    { text: 'Projects', url: '#projects' },
-    { text: 'Contact', url: '#contact' }
-  ];
+  const { language } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +43,13 @@ function App() {
       clearTimeout(timer);
     };
   }, []);
+
+  const navLinks = [
+    { text: t?.home || 'Home', url: '#home' },
+    { text: t?.about || 'About', url: '#about' },
+    { text: t?.projects || 'Projects', url: '#projects' },
+    { text: t?.contact || 'Contact', url: '#contact' }
+  ];
 
   return (
     <div className="app">
@@ -82,7 +88,10 @@ function App() {
                 <Footer />
               </motion.div>
             </motion.main>
-            <ThemeToggle />
+            <div className="toggle-container">
+              <ThemeToggle />
+              <LanguageToggle />
+            </div>
           </>
         )}
       </AnimatePresence>
@@ -90,4 +99,10 @@ function App() {
   );
 }
 
-export default App;
+const AppWithLanguage = () => (
+  <LanguageProvider>
+    <App />
+  </LanguageProvider>
+);
+
+export default AppWithLanguage;

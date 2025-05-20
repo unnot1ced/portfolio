@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
+import { translations } from '../../utils/translations';
 
-const ProjectCard = ({ project, delay }) => {
+const ProjectCard = ({ project, delay, t }) => {
   return (
     <motion.div 
       className="project-card"
@@ -23,12 +25,12 @@ const ProjectCard = ({ project, delay }) => {
         <div className="project-links">
           {project.demo && (
             <a href={project.demo} target="_blank" rel="noopener noreferrer">
-              Live Demo →
+              {t.live_demo}
             </a>
           )}
           {project.github && (
             <a href={project.github} target="_blank" rel="noopener noreferrer">
-              View Code →
+              {t.view_code}
             </a>
           )}
         </div>
@@ -38,31 +40,32 @@ const ProjectCard = ({ project, delay }) => {
 };
 
 const Projects = () => {
-  const projects = [
+  const { language } = useLanguage();
+  const t = translations[language];
+  
+  const projectData = t.project_items;
+  
+  const projectMeta = [
     {
-      title: "Multiplayer quiz website (local)",
-      description: "A multiplayer quiz website where users can create and join quizzes.",
       image: "https://iili.io/3cAyc1s.jpg",
-      tags: ["React", "Node.js", "SocketIO", "JavaScript"],
       github: "https://github.com/unnot1ced/InGesprekMetGLR"
     },
     {
-      title: "crud app",
-      description: "A simple CRUD application where u can add, look in detail and delete items",
       image: "https://iili.io/3cADLOP.png",
-      tags: ["PHP", "HTML", "CSS"],
       site: "#",
       github: "https://github.com/unnot1ced/crud"
     },
     {
-      title: "Pycordbot",
-      description: "A Discord bot made with discordpy, that can play games and stuff",
       image: "https://iili.io/3cApVig.jpg",
-      tags: ["aoihttp", "Python", "Discordpy"],
       site: "#",
       github: "https://github.com/unnot1ced/pycordbot"
     }
   ];
+  
+  const projects = projectData.map((project, index) => ({
+    ...project,
+    ...projectMeta[index]
+  }));
 
   return (
     <section id="projects" className="projects">
@@ -73,7 +76,7 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          My Projects
+          {t.projects_title}
         </motion.h2>
         
         <motion.p
@@ -82,15 +85,16 @@ const Projects = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          Here are some of my recent projects made in various coding languages.
+          {t.projects_subtitle}
         </motion.p>
         
         <div className="projects-grid">
           {projects.map((project, index) => (
             <ProjectCard 
-              key={project.title}
+              key={index}
               project={project}
               delay={0.1 + (index * 0.1)}
+              t={t}
             />
           ))}
         </div>
