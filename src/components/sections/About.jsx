@@ -75,7 +75,7 @@ const About = () => {
             <span>3+</span>
             <span>{t.years}</span>
           </div>
-          <img src="https://iili.io/3cGq3VS.md.jpg" alt="saber:)" />
+          <img src="https://iili.io/3syyBGn.png" alt="python" />
         </motion.div>
       </div>
     </section>
